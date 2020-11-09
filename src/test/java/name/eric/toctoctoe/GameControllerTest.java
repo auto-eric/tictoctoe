@@ -170,7 +170,7 @@ class GameControllerTest {
         given()
             .header(new Header("Content-Type", ContentType.JSON.toString()))
             .header(new Header("Accept", ContentType.JSON.toString()))
-                .body(moveDto)
+            .body(moveDto)
         .when()
             .put(url + "/2")
             .prettyPeek()
@@ -179,4 +179,36 @@ class GameControllerTest {
         ;
         //@formatter:on
     }
+
+    @Test
+    public void post_createNewGame() {
+        //@formatter:off
+        given()
+            .header(new Header("Content-Type", ContentType.JSON.toString()))
+            .header(new Header("Accept", ContentType.JSON.toString()))
+        .when()
+            .post(url)
+            .prettyPeek()
+        .then()
+            .statusCode(HttpStatus.CREATED.value())
+            .body("status", equalTo(Status.RUNNING.toString()))
+            .body("field.size()", equalTo(3))
+            .body("field[0].size()", equalTo(3))
+            .body("field[0][0]", nullValue())
+            .body("field[0][1]", nullValue())
+            .body("field[0][2]", nullValue())
+
+            .body("field[1].size()", equalTo(3))
+            .body("field[1][0]", nullValue())
+            .body("field[1][1]", nullValue())
+            .body("field[1][2]", nullValue())
+
+            .body("field[2].size()", equalTo(3))
+            .body("field[2][0]", nullValue())
+            .body("field[2][1]", nullValue())
+            .body("field[2][2]", nullValue())
+        ;
+        //@formatter:on
+    }
+
 }

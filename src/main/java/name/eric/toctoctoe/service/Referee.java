@@ -1,6 +1,7 @@
 package name.eric.toctoctoe.service;
 
 import name.eric.toctoctoe.dto.Status;
+import name.eric.toctoctoe.exception.InvalidDataException;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
