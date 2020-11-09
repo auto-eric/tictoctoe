@@ -1,5 +1,5 @@
 package name.eric.toctoctoe.dto;
 
 public enum Status {
-    RUNNING, ENDED
+    RUNNING, X_WON, O_WON
 }
