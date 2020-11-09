@@ -24,7 +24,6 @@ public class GameController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/game",
             method = RequestMethod.POST,
-            consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE
     )
     public GameDto createGame() {
@@ -34,7 +33,6 @@ public class GameController {
     @ApiOperation(value = "get a certain game", produces = APPLICATION_JSON_VALUE)
     @RequestMapping(value = "/game/{id}",
             method = RequestMethod.GET,
-            consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE
     )
     public GameDto getGame(@PathVariable("id") Integer gameId) {
