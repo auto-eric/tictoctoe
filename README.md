@@ -18,3 +18,10 @@ Thus we have to deliver the current game with field the move.
 ### Rest documentation
 * run `mvn spring-boot:run`
 * open https://localhost:8080/swagger-ui.html
+
+#### Kown issues
+* The error response should provide descriptive message.
+
+## ToDo
+* validation
+* persistence
