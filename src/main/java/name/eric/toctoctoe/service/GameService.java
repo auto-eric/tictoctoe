@@ -44,10 +44,13 @@ public class GameService {
         return gameDto;
     }
 
-    // TODO fill random valid field
-    private Character[][] fillRandomField(){
-        int index = RANDOM.nextInt(CHARACTER_SET.length);
-        var value = CHARACTER_SET[index];
-        return new Character[3][3];
+
+    public GameDto prepareNewGame() {
+        GameDto gameDto = new GameDto();
+        gameDto.setStatus(Status.RUNNING);
+        int id = new Random().nextInt() + 3; // game ID 1 and 2 are occupied
+        gameDto.setId(id);
+        gameDto.setField(new Character[3][3]);
+        return gameDto;
     }
 }
